@@ -1,0 +1,32 @@
+
+<div class="page-header">
+<h1>Talkie Statuses </hi>
+
+</div>
+
+
+
+<% @statuses.each do |status|%>
+<div class="status row">
+	<div class="col-md-1">
+	<%= image_tag status.user.gravatar_url %>
+	</div>
+<div class="col-md-7">
+<strong><%= status.user.full_name %></strong>
+<p><%= status.content %></p>
+<div class="meta">
+  <%= link_to "Post", new_status_path, class:"btn btn-success" %>
+
+  <%= link_to time_ago_in_words(status.created_at) + " ago " ,status %>
+    <img src="http://designmodo.com/wp-content/themes/designmodov2.1/flat-ui/images/ico-4.png" style="height:30px;width:30px"/>
+  <span class="admin">
+
+    
+    <%= link_to "Edit", edit_status_path(status), class: "btn btn-info" %>
+    <%= link_to "Delete", status, method: :delete , class: "btn btn-danger", data: {confirm: "Are you sure you want to delete this status?" } %>
+  </span>
+</div>
+</div>
+</div>
+
+<% end %>
