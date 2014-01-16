@@ -9,6 +9,11 @@ gem 'rails_12factor', group: :production
 gem 'devise'
 gem 'simple_form', '~> 2.1.0'
 
+group :test do
+	gem 'shoulda'
+end
+
+
 group :development, :test do
 	gem 'sqlite3'
 end
